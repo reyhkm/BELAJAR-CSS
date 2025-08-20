@@ -48,15 +48,15 @@ export const useProgressStore = create<State & Actions>()(
         const modulesData = {
           selectors: {
             name: 'The Selector Garden',
-            challenges: selectorsChallenges as Challenge[],
+            challenges: selectorsChallenges as unknown as Challenge[],
           },
           'box-model': {
             name: 'The Box Model Citadel',
-            challenges: boxModelChallenges as Challenge[],
+            challenges: boxModelChallenges as unknown as Challenge[],
           },
           flexbox: {
             name: 'The Flexbox Fleet',
-            challenges: flexboxChallenges as Challenge[],
+            challenges: flexboxChallenges as unknown as Challenge[],
           },
         };
         set({ modules: modulesData });
