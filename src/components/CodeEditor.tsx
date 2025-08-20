@@ -2,6 +2,8 @@ import React from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { css } from '@codemirror/lang-css';
 import { dracula } from '@uiw/codemirror-theme-dracula';
+import { EditorView } from '@codemirror/view';
+import { EditorState } from '@codemirror/state';
 
 interface CodeEditorProps {
   value: string;
@@ -15,15 +17,15 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange, readOnly = fal
       <CodeMirror
         value={value}
         height="100%"
-        extensions={[css()]}
+        extensions={[
+          css(),
+          EditorView.lineWrapping, // Enable line wrapping
+          EditorState.tabSize.of(2), // Set tab size to 2
+          EditorState.indentUnit.of("  ") // Use 2 spaces for indentation
+        ]}
         onChange={onChange}
         theme={dracula}
         readOnly={readOnly}
-        options={{
-          lineWrapping: true,
-          indentWithTabs: false,
-          tabSize: 2,
-        }}
       />
     </div>
   );

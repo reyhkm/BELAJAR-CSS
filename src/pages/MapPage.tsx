@@ -90,8 +90,9 @@ const MapPage: React.FC = () => {
           const moduleProgress = moduleData.length > 0 ? moduleCompletedLevels / moduleData.length : 0;
 
           // Unlock logic: first module is always unlocked, subsequent modules unlock if previous is 100% complete
-          const isUnlocked = index === 0 || (index > 0 && moduleOrder[index - 1] && 
-            (Object.values(userProgress[moduleOrder[index - 1]] || {}).filter(level => level.completed).length === modules[moduleOrder[index - 1]].length));
+          const prevModuleCompleted = index > 0 && moduleOrder[index - 1] && modules[moduleOrder[index - 1]] && 
+            (Object.values(userProgress[moduleOrder[index - 1]] || {}).filter(level => level.completed).length === modules[moduleOrder[index - 1]].length);
+          const isUnlocked = index === 0 || prevModuleCompleted;
 
           return (
             <ModuleCard

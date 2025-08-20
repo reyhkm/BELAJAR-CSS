@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onAnimationStart'> {
   variant?: 'primary' | 'secondary' | 'success' | 'error' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;

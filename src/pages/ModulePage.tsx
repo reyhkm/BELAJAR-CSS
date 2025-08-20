@@ -38,7 +38,7 @@ const ModulePage: React.FC = () => {
       setActiveModule(moduleName);
       // Find the first incomplete level or default to 0
       const firstIncompleteIndex = modules[moduleName].findIndex(
-        (challenge, idx) => !(userProgress[moduleName]?.[challenge.id]?.completed)
+        (challenge, _idx) => !(userProgress[moduleName]?.[challenge.id]?.completed)
       );
       setActiveLevelIndex(firstIncompleteIndex !== -1 ? firstIncompleteIndex : 0);
     } else if (!moduleName) {
