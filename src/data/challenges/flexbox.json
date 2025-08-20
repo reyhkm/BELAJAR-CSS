@@ -1,13 +1,13 @@
 [
   {
     "id": "flexbox-1",
-    "title": "Display Flex",
-    "instruction": "Armada kapal ini berantakan! Gunakan `display: flex;` pada kontainer `.fleet` untuk menyusun mereka dalam satu baris.",
-    "html": "<div class=\"fleet\"><div class=\"ship\"></div><div class=\"ship\"></div><div class=\"ship\"></div></div><style>.fleet { border: 2px dashed #34495e; padding: 10px; width: 300px; } .ship { width: 50px; height: 50px; background: #e74c3c; margin: 5px; }</style>",
-    "cssStarter": ".fleet {\n  /* Kodemu di sini */\n}",
+    "title": "Aktifkan Flexbox",
+    "instruction": "Ubah kontainer `.container` menjadi flex container dengan `display: flex;` agar item-itemnya sejajar.",
+    "html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+    "cssStarter": ".container {\n  border: 2px dashed #6B7280;\n  min-height: 150px;\n  /* Kodemu di sini */\n}",
     "solution": {
       "type": "style",
-      "selector": ".fleet",
+      "selector": ".container",
       "properties": {
         "display": "flex"
       }
@@ -15,29 +15,57 @@
   },
   {
     "id": "flexbox-2",
-    "title": "Justify Content",
-    "instruction": "Pusatkan semua harta karun di tengah peti. Gunakan `justify-content: center;` pada kontainer `.chest`.",
-    "html": "<div class=\"chest\"><div class=\"gem\"></div><div class=\"gem\"></div><div class=\"gem\"></div></div><style>.chest { display: flex; border: 2px solid #8e44ad; padding: 10px; width: 300px; height: 100px; background: #ecf0f1; } .gem { width: 40px; height: 40px; background: #3498db; border-radius: 50%; }</style>",
-    "cssStarter": ".chest {\n  display: flex;\n  /* Kodemu di sini */\n}",
+    "title": "Arah Flex",
+    "instruction": "Atur item-item di dalam `.container` agar tersusun secara vertikal dengan `flex-direction: column;`.",
+    "html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+    "cssStarter": ".container {\n  display: flex;\n  border: 2px dashed #6B7280;\n  min-height: 200px;\n  /* Kodemu di sini */\n}",
     "solution": {
       "type": "style",
-      "selector": ".chest",
+      "selector": ".container",
       "properties": {
-        "justifyContent": "center"
+        "flex-direction": "column"
       }
     }
   },
   {
     "id": "flexbox-3",
-    "title": "Align Items",
-    "instruction": "Semua item berada di posisi yang berbeda secara vertikal. Gunakan `align-items: center;` untuk menyejajarkan mereka di tengah secara vertikal.",
-    "html": "<div class=\"shelf\"><div class=\"book book-1\"></div><div class=\"book book-2\"></div><div class=\"book book-3\"></div></div><style>.shelf { display: flex; justify-content: space-around; border: 2px solid #c0392b; padding: 10px; width: 300px; height: 150px; background: #fdf6e3; } .book { width: 40px; background: #2980b9; } .book-1 { height: 80px; } .book-2 { height: 120px; } .book-3 { height: 60px; }</style>",
-    "cssStarter": ".shelf {\n  display: flex;\n  justify-content: space-around;\n  /* Kodemu di sini */\n}",
+    "title": "Justify Content",
+    "instruction": "Pusatkan item-item di dalam `.container` secara horizontal dengan `justify-content: center;`.",
+    "html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n</div>",
+    "cssStarter": ".container {\n  display: flex;\n  border: 2px dashed #6B7280;\n  min-height: 100px;\n  /* Kodemu di sini */\n}",
     "solution": {
       "type": "style",
-      "selector": ".shelf",
+      "selector": ".container",
       "properties": {
-        "alignItems": "center"
+        "justify-content": "center"
+      }
+    }
+  },
+  {
+    "id": "flexbox-4",
+    "title": "Align Items",
+    "instruction": "Pusatkan item-item di dalam `.container` secara vertikal dengan `align-items: center;`.",
+    "html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n</div>",
+    "cssStarter": ".container {\n  display: flex;\n  border: 2px dashed #6B7280;\n  height: 200px;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".container",
+      "properties": {
+        "align-items": "center"
+      }
+    }
+  },
+  {
+    "id": "flexbox-5",
+    "title": "Gap Antar Item",
+    "instruction": "Beri jarak `20px` antar item di dalam `.container` menggunakan properti `gap`.",
+    "html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+    "cssStarter": ".container {\n  display: flex;\n  border: 2px dashed #6B7280;\n  min-height: 100px;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".container",
+      "properties": {
+        "gap": "20px"
       }
     }
   }

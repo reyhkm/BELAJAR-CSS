@@ -1,62 +1,90 @@
-import { useProgressStore } from '@/stores/progressStore';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Lock } from 'lucide-react';
+import ModuleCard from '../components/ModuleCard';
+import ProgressBar from '../components/ProgressBar';
+import { useProgressStore } from '../store/progressStore';
 
-const MapPage = () => {
-  const modules = useProgressStore((state) => state.modules);
-  const userProgress = useProgressStore((state) => state.userProgress);
+const MapPage: React.FC = () => {
+  const { modules, userProgress, moduleOrder } = useProgressStore();
 
-  const moduleKeys = Object.keys(modules);
+  const totalLevels = Object.values(modules).reduce((acc, module) => acc + module.length, 0);
+  const completedLevels = Object.values(userProgress).reduce((acc, moduleLevels) => {
+    return acc + Object.values(moduleLevels).filter(level => level.completed).length;
+  }, 0);
 
-  const getModuleProgress = (moduleKey: string) => {
-    const module = modules[moduleKey];
-    const progress = userProgress[moduleKey] || {};
-    const completedCount = Object.values(progress).filter(Boolean).length;
-    const totalCount = module.challenges.length;
-    return { completedCount, totalCount };
+  const overallProgress = totalLevels > 0 ? completedLevels / totalLevels : 0;
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   return (
-    <div className="container mx-auto p-8">
-      <h1 className="text-4xl font-bold text-center mb-4 text-brand-accent">CSS Quest Map</h1>
-      <p className="text-center text-lg mb-12">Pilih sebuah dunia untuk memulai petualangan CSS-mu!</p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {moduleKeys.map((key, index) => {
-          const module = modules[key];
-          const { completedCount, totalCount } = getModuleProgress(key);
-          const isCompleted = completedCount === totalCount;
+    <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-gradient-to-br from-background to-gray-900">
+      <motion.h1
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-5xl font-extrabold text-white mb-10 drop-shadow-lg"
+      >
+        CSS Quest Worlds
+      </motion.h1>
+
+      <div className="w-full max-w-4xl mb-12">
+        <ProgressBar progress={overallProgress} label="Overall Progress" />
+      </div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl"
+      >
+        {moduleOrder.map((moduleName, index) => {
+          const moduleData = modules[moduleName];
+          if (!moduleData) return null;
+
+          const moduleLevelsProgress = userProgress[moduleName] || {};
+          const moduleCompletedLevels = Object.values(moduleLevelsProgress).filter(level => level.completed).length;
+          const moduleProgress = moduleData.length > 0 ? moduleCompletedLevels / moduleData.length : 0;
+
+          // Unlock logic: first module is always unlocked, subsequent modules unlock if previous is 100% complete
+          const isUnlocked = index === 0 || (index > 0 && moduleOrder[index - 1] && 
+            (Object.values(userProgress[moduleOrder[index - 1]] || {}).filter(level => level.completed).length === modules[moduleOrder[index - 1]].length));
+
+          const moduleTitles: { [key: string]: string } = {
+            'selectors': 'The Selector Garden',
+            'box-model': 'The Box Model Citadel',
+            'color-text': 'The Color & Text Palace',
+            'flexbox': 'The Flexbox Fleet',
+            'grid': 'The Grid Kingdom',
+            'positioning': 'The Positioning Peak',
+            'transitions-animations': 'The Transition & Animation Volcano',
+          };
+
+          const moduleDescriptions: { [key: string]: string } = {
+            'selectors': 'Master the art of targeting HTML elements with precision.',
+            'box-model': 'Unravel the mysteries of element dimensions, padding, borders, and margins.',
+            'color-text': 'Bring your designs to life with vibrant colors and expressive typography.',
+            'flexbox': 'Arrange elements effortlessly with the power of one-dimensional layouts.',
+            'grid': 'Build complex, responsive layouts with the ultimate two-dimensional grid system.',
+            'positioning': 'Control the exact placement of elements on the page, from static to sticky.',
+            'transitions-animations': 'Add smooth motion and dynamic effects to your web elements.',
+          };
 
           return (
-            <motion.div
-              key={key}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Link to={`/module/${key}`} className="block p-6 bg-brand-primary rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full">
-                <div className="flex justify-between items-start">
-                  <h2 className="text-2xl font-bold mb-2 text-white">{module.name}</h2>
-                  {isCompleted ? (
-                    <CheckCircle2 className="text-green-400" size={28} />
-                  ) : (
-                    <Lock className="text-gray-400" size={28} />
-                  )}
-                </div>
-                <p className="text-gray-300 mb-4">Tantangan: {key.replace('-', ' ')}</p>
-                <div className="w-full bg-brand-secondary rounded-full h-2.5">
-                  <div 
-                    className="bg-brand-accent h-2.5 rounded-full"
-                    style={{ width: `${(completedCount / totalCount) * 100}%` }}
-                  ></div>
-                </div>
-                <p className="text-right text-sm mt-2 text-gray-400">{completedCount} / {totalCount} Selesai</p>
-              </Link>
-            </motion.div>
+            <ModuleCard
+              key={moduleName}
+              moduleName={moduleName}
+              title={moduleTitles[moduleName] || moduleName.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+              description={moduleDescriptions[moduleName] || 'Explore fundamental CSS concepts.'}
+              image={`/assets/modules/${moduleName}.png`}
+              isUnlocked={isUnlocked}
+              progress={moduleProgress}
+            />
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };

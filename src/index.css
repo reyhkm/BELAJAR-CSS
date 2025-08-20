@@ -2,17 +2,197 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-brand-bg text-brand-light font-sans;
-}
+@layer base {
+  html, body, #root {
+    @apply h-full w-full bg-background text-text font-sans;
+  }
 
-.cm-editor {
-  height: 100%;
-  font-family: theme('fontFamily.mono');
-  background-color: #1e1e1e !important;
-}
+  /* Basic styling for challenge arena elements to make them visible */
+  .challenge-arena-container * {
+    box-sizing: border-box;
+  }
 
-.cm-gutters {
-  background-color: #1e1e1e !important;
-  border-right: 1px solid #333;
+  /* Default styles for elements in challenges, can be overridden by user CSS */
+  .challenge-arena-container div, .challenge-arena-container span, .challenge-arena-container p, .challenge-arena-container h1, .challenge-arena-container h2, .challenge-arena-container h3, .challenge-arena-container h4, .challenge-arena-container h5, .challenge-arena-container h6, .challenge-arena-container ul, .challenge-arena-container ol, .challenge-arena-container li, .challenge-arena-container a, .challenge-arena-container img, .challenge-arena-container button, .challenge-arena-container input, .challenge-arena-container select, .challenge-arena-container textarea, .challenge-arena-container table, .challenge-arena-container tr, .challenge-arena-container td, .challenge-arena-container th, .challenge-arena-container form, .challenge-arena-container fieldset, .challenge-arena-container legend, .challenge-arena-container label, .challenge-arena-container section, .challenge-arena-container article, .challenge-arena-container aside, .challenge-arena-container header, .challenge-arena-container footer, .challenge-arena-container nav, .challenge-arena-container main, .challenge-arena-container figure, .challenge-arena-container figcaption, .challenge-arena-container video, .challenge-arena-container audio, .challenge-arena-container source, .challenge-arena-container track, .challenge-arena-container canvas, .challenge-arena-container svg, .challenge-arena-container iframe, .challenge-arena-container object, .challenge-arena-container embed, .challenge-arena-container dialog, .challenge-arena-container details, .challenge-arena-container summary, .challenge-arena-container slot, .challenge-arena-container template, .challenge-arena-container picture, .challenge-arena-container source, .challenge-arena-container map, .challenge-arena-container area, .challenge-arena-container link, .challenge-arena-container style, .challenge-arena-container script, .challenge-arena-container noscript, .challenge-arena-container meta, .challenge-arena-container title, .challenge-arena-container base, .challenge-arena-container head, .challenge-arena-container body, .challenge-arena-container html {
+    min-width: 10px; /* Ensure elements are visible */
+    min-height: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for visibility */
+    border: 1px dashed rgba(255, 255, 255, 0.2); /* Dashed border for outline */
+    color: white;
+    display: block; /* Ensure elements take up space */
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.2;
+    overflow: hidden;
+    position: static;
+    z-index: auto;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+
+  /* Specific overrides for challenge elements if needed */
+  .challenge-arena-container .box {
+    width: 100px;
+    height: 100px;
+    background-color: #3B82F6; /* Blue-500 */
+    border: 2px solid #2563EB; /* Blue-700 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+  }
+
+  .challenge-arena-container .item {
+    width: 50px;
+    height: 50px;
+    background-color: #EC4899; /* Accent color */
+    border: 1px solid #BE185D; /* Accent dark */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+  }
+
+  .challenge-arena-container .target {
+    background-color: #10B981; /* Success color */
+    border: 2px solid #059669; /* Success dark */
+  }
+
+  .challenge-arena-container .red-box {
+    background-color: #EF4444;
+    border: 2px solid #DC2626;
+  }
+
+  .challenge-arena-container .blue-box {
+    background-color: #3B82F6;
+    border: 2px solid #2563EB;
+  }
+
+  .challenge-arena-container .green-box {
+    background-color: #10B981;
+    border: 2px solid #059669;
+  }
+
+  .challenge-arena-container .orange-box {
+    background-color: #F59E0B;
+    border: 2px solid #D97706;
+  }
+
+  .challenge-arena-container .apple {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #EF4444;
+    border: 2px solid #DC2626;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+  }
+
+  .challenge-arena-container .orange {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #F59E0B;
+    border: 2px solid #D97706;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+  }
+
+  .challenge-arena-container plate {
+    display: block;
+    width: 80px;
+    height: 20px;
+    background-color: #D1D5DB;
+    border: 1px solid #9CA3AF;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #374151;
+    font-size: 12px;
+  }
+
+  .challenge-arena-container .table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    border: 2px dashed #6B7280;
+    background-color: #374151;
+    min-height: 150px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .challenge-arena-container .notification {
+    width: 120px;
+    height: 40px;
+    background-color: #F59E0B;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .challenge-arena-container .card {
+    width: 100px;
+    height: 150px;
+    border: 2px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .challenge-arena-container .card.red {
+    background-color: #EF4444;
+    border-color: #DC2626;
+    color: white;
+  }
+
+  .challenge-arena-container .card.blue {
+    background-color: #3B82F6;
+    border-color: #2563EB;
+    color: white;
+  }
+
+  .challenge-arena-container .button-hover {
+    padding: 10px 20px;
+    background-color: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .challenge-arena-container .star {
+    width: 50px;
+    height: 50px;
+    background-color: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  /* Specific styles for the validation check */
+  .challenge-arena-container .css-quest-validation-target {
+    background-color: limegreen !important;
+    outline: 2px solid darkgreen !important;
+    box-shadow: 0 0 5px 2px limegreen !important;
+  }
 }

@@ -1,0 +1,75 @@
+[
+  {
+    "id": "grid-1",
+    "title": "Aktifkan Grid",
+    "instruction": "Ubah kontainer `.grid-container` menjadi grid container dengan `display: grid;`.",
+    "html": "<div class=\"grid-container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+    "cssStarter": ".grid-container {\n  border: 2px dashed #6B7280;\n  min-height: 150px;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".grid-container",
+      "properties": {
+        "display": "grid"
+      }
+    }
+  },
+  {
+    "id": "grid-2",
+    "title": "Kolom Grid",
+    "instruction": "Buat `.grid-container` memiliki 3 kolom dengan lebar yang sama menggunakan `grid-template-columns: 1fr 1fr 1fr;`.",
+    "html": "<div class=\"grid-container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n  <div class=\"item\">4</div>\n</div>",
+    "cssStarter": ".grid-container {\n  display: grid;\n  border: 2px dashed #6B7280;\n  min-height: 150px;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".grid-container",
+      "properties": {
+        "grid-template-columns": "1fr 1fr 1fr"
+      }
+    }
+  },
+  {
+    "id": "grid-3",
+    "title": "Baris Grid",
+    "instruction": "Buat `.grid-container` memiliki 2 baris dengan tinggi `100px` dan `auto` menggunakan `grid-template-rows: 100px auto;`.",
+    "html": "<div class=\"grid-container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n  <div class=\"item\">4</div>\n</div>",
+    "cssStarter": ".grid-container {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  border: 2px dashed #6B7280;\n  min-height: 250px;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".grid-container",
+      "properties": {
+        "grid-template-rows": "100px auto"
+      }
+    }
+  },
+  {
+    "id": "grid-4",
+    "title": "Gap Grid",
+    "instruction": "Beri jarak `15px` antar baris dan kolom di `.grid-container` menggunakan `gap: 15px;`.",
+    "html": "<div class=\"grid-container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n  <div class=\"item\">4</div>\n</div>",
+    "cssStarter": ".grid-container {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-template-rows: repeat(2, 100px);\n  border: 2px dashed #6B7280;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".grid-container",
+      "properties": {
+        "gap": "15px"
+      }
+    }
+  },
+  {
+    "id": "grid-5",
+    "title": "Posisi Item Grid",
+    "instruction": "Tempatkan `.item-b` di kolom kedua dan baris pertama menggunakan `grid-column: 2;` dan `grid-row: 1;`.",
+    "html": "<div class=\"grid-container\">\n  <div class=\"item\">A</div>\n  <div class=\"item item-b\">B</div>\n  <div class=\"item\">C</div>\n  <div class=\"item\">D</div>\n</div>",
+    "cssStarter": ".grid-container {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-template-rows: repeat(2, 100px);\n  gap: 10px;\n}\n.item-b {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".item-b",
+      "properties": {
+        "grid-column-start": "2",
+        "grid-column-end": "3",
+        "grid-row-start": "1",
+        "grid-row-end": "2"
+      }
+    }
+  }
+]

@@ -1,18 +1,17 @@
-import { Outlet } from 'react-router-dom';
-import Header from './components/Header';
-import { useChallengeData } from './hooks/useChallengeData';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MapPage from './pages/MapPage';
+import ModulePage from './pages/ModulePage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
-  // Load all challenge data into the store on app start
-  useChallengeData();
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow">
-        <Outlet />
-      </main>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MapPage />} />
+        <Route path="/module/:moduleName" element={<ModulePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "transition-1",
+    "title": "Transisi Hover",
+    "instruction": "Buat tombol `.button-hover` membesar (`transform: scale(1.1);`) dengan mulus saat di-hover. Gunakan `transition: transform 0.3s ease;`.",
+    "html": "<button class=\"button-hover\">Hover Me</button>",
+    "cssStarter": ".button-hover {\n  /* Kodemu di sini */\n}\n.button-hover:hover {\n  transform: scale(1.1);\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".button-hover",
+      "properties": {
+        "transition-property": "transform",
+        "transition-duration": "0.3s",
+        "transition-timing-function": "ease"
+      }
+    }
+  },
+  {
+    "id": "transition-2",
+    "title": "Transisi Warna Latar",
+    "instruction": "Buat kotak `.box` mengubah `background-color` menjadi `green` dengan transisi `0.5s ease` saat di-hover.",
+    "html": "<div class=\"box\"></div>",
+    "cssStarter": ".box {\n  width: 100px;\n  height: 100px;\n  background-color: blue;\n  /* Kodemu di sini */\n}\n.box:hover {\n  background-color: green;\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".box",
+      "properties": {
+        "transition-property": "background-color",
+        "transition-duration": "0.5s",
+        "transition-timing-function": "ease"
+      }
+    }
+  },
+  {
+    "id": "animation-1",
+    "title": "Animasi Berputar",
+    "instruction": "Buat bintang `.star` berputar tanpa henti. Definisikan `@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }` dan terapkan dengan `animation: spin 2s linear infinite;`.",
+    "html": "<div class=\"star\"></div>",
+    "cssStarter": "@keyframes spin {\n  from { transform: rotate(0deg); }\n  to { transform: rotate(360deg); }\n}\n\n.star {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".star",
+      "properties": {
+        "animation-name": "spin",
+        "animation-duration": "2s",
+        "animation-timing-function": "linear",
+        "animation-iteration-count": "infinite"
+      }
+    }
+  }
+]

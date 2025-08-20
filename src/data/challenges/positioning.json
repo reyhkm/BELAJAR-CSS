@@ -1,0 +1,68 @@
+[
+  {
+    "id": "position-1",
+    "title": "Posisi Relatif",
+    "instruction": "Gunakan `position: relative;` pada `.box` dan geser `top: 20px;` dan `left: 20px;`.",
+    "html": "<div class=\"box\"></div>",
+    "cssStarter": ".box {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".box",
+      "properties": {
+        "position": "relative",
+        "top": "20px",
+        "left": "20px"
+      }
+    }
+  },
+  {
+    "id": "position-2",
+    "title": "Posisi Absolut",
+    "instruction": "Pindahkan kotak `.flyer` ke pojok kanan atas dari kontainer `.box` menggunakan `position: absolute;`, `top: 0;` dan `right: 0;`.",
+    "html": "<div class=\"box\" style=\"position: relative; width: 200px; height: 200px;\">\n  <div class=\"flyer item\">Flyer</div>\n</div>",
+    "cssStarter": ".flyer {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".flyer",
+      "properties": {
+        "position": "absolute",
+        "top": "0px",
+        "right": "0px"
+      }
+    }
+  },
+  {
+    "id": "position-3",
+    "title": "Posisi Fixed",
+    "instruction": "Buat notifikasi `.notification` tetap berada di pojok kanan bawah layar, bahkan saat di-scroll, dengan `position: fixed;`, `bottom: 20px;` dan `right: 20px;`.",
+    "html": "<div style=\"height: 1000px; background-color: #374151;\">\n  <p style=\"padding: 20px;\">Scroll ke bawah untuk melihat notifikasi tetap di tempatnya.</p>\n  <div class=\"notification\">New Message!</div>\n</div>",
+    "cssStarter": ".notification {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".notification",
+      "properties": {
+        "position": "fixed",
+        "bottom": "20px",
+        "right": "20px"
+      }
+    }
+  },
+  {
+    "id": "position-4",
+    "title": "Z-Index",
+    "instruction": "Tumpuk kartu `.red.card` di atas kartu `.blue.card` menggunakan `z-index: 2;` pada kartu merah dan `z-index: 1;` pada kartu biru. Pastikan keduanya memiliki `position: absolute;`.",
+    "html": "<div style=\"position: relative; width: 250px; height: 200px; border: 2px dashed #6B7280;\">\n  <div class=\"card blue\" style=\"position: absolute; top: 50px; left: 50px;\">Blue</div>\n  <div class=\"card red\" style=\"position: absolute; top: 70px; left: 70px;\">Red</div>\n</div>",
+    "cssStarter": ".red.card {\n  /* Kodemu di sini */\n}\n.blue.card {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".red.card",
+      "properties": {
+        "z-index": "2"
+      },
+      "secondarySelector": ".blue.card",
+      "secondaryProperties": {
+        "z-index": "1"
+      }
+    }
+  }
+]

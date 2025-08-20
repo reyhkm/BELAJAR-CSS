@@ -2,37 +2,56 @@
   {
     "id": "selector-1",
     "title": "Pilih berdasarkan Elemen",
-    "instruction": "Pilih semua piring di atas meja. Gunakan selektor elemen `plate` untuk memberi mereka latar belakang oranye.",
-    "html": "<div class=\"table\"><plate></plate><apple></apple><plate></plate></div><style>plate, apple { display: inline-block; width: 50px; height: 50px; border: 2px solid #333; margin: 5px; border-radius: 50%;} apple { background: #e74c3c; }</style>",
-    "cssStarter": "/* Pilih semua piring */\n",
+    "instruction": "Pilih semua piring (`<plate>`) di atas meja. Beri mereka `background-color: limegreen;`",
+    "html": "<div class=\"table\"><plate>Plate 1</plate><apple class=\"apple\">Apple</apple><plate>Plate 2</plate><orange class=\"orange\">Orange</orange></div>",
+    "cssStarter": "/* Pilih semua piring */\nplate {\n  /* Kodemu di sini */\n}",
     "solution": {
-      "type": "style",
-      "selector": "plate",
-      "properties": {
-        "backgroundColor": "rgb(243, 156, 18)"
-      }
+      "type": "selector",
+      "selector": "plate"
     }
   },
   {
     "id": "selector-2",
     "title": "Pilih berdasarkan Kelas",
-    "instruction": "Pilih semua buah yang mewah. Gunakan selektor kelas `.fancy`.",
-    "html": "<div class=\"table\"><plate></plate><apple class=\"fancy\"></apple><orange></orange><apple class=\"fancy\"></apple></div><style>plate, apple, orange { display: inline-block; width: 50px; height: 50px; border: 2px solid #333; margin: 5px; border-radius: 50%;} apple { background: #e74c3c; } orange { background: #f39c12; }</style>",
-    "cssStarter": "/* Pilih semua buah mewah */\n.fancy {\n\n}",
+    "instruction": "Pilih semua apel (`.apple`). Beri mereka `background-color: limegreen;`",
+    "html": "<div class=\"table\"><plate>Plate</plate><apple class=\"apple\">Apple 1</apple><orange class=\"orange\">Orange</orange><apple class=\"apple\">Apple 2</apple></div>",
+    "cssStarter": "/* Pilih semua apel */\n.apple {\n  /* Kodemu di sini */\n}",
     "solution": {
       "type": "selector",
-      "selector": ".fancy"
+      "selector": ".apple"
     }
   },
   {
     "id": "selector-3",
     "title": "Pilih berdasarkan ID",
-    "instruction": "Pilih piring spesial dengan ID `#special-plate`.",
-    "html": "<div class=\"table\"><plate id=\"special-plate\"></plate><plate></plate><apple></apple></div><style>plate, apple { display: inline-block; width: 50px; height: 50px; border: 2px solid #333; margin: 5px; border-radius: 50%;} apple { background: #e74c3c; }</style>",
-    "cssStarter": "/* Pilih piring spesial */\n",
+    "instruction": "Pilih piring dengan ID `#main-plate`. Beri dia `background-color: limegreen;`",
+    "html": "<div class=\"table\"><plate>Plate</plate><plate id=\"main-plate\">Main Plate</plate><apple class=\"apple\">Apple</apple></div>",
+    "cssStarter": "/* Pilih piring utama */\n#main-plate {\n  /* Kodemu di sini */\n}",
     "solution": {
       "type": "selector",
-      "selector": "#special-plate"
+      "selector": "#main-plate"
+    }
+  },
+  {
+    "id": "selector-4",
+    "title": "Universal Selector",
+    "instruction": "Pilih SEMUA elemen di dalam `.table`. Beri mereka `background-color: limegreen;`",
+    "html": "<div class=\"table\"><p>Text</p><div>Box</div><span>Span</span></div>",
+    "cssStarter": "/* Pilih semua elemen */\n.table * {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "selector",
+      "selector": ".table *"
+    }
+  },
+  {
+    "id": "selector-5",
+    "title": "Descendant Selector",
+    "instruction": "Pilih semua `span` yang berada di dalam `div`. Beri mereka `background-color: limegreen;`",
+    "html": "<div><span>Span 1</span></div><p><span>Span 2</span></p><div><p><span>Span 3</span></p></div>",
+    "cssStarter": "/* Pilih span di dalam div */\ndiv span {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "selector",
+      "selector": "div span"
     }
   }
 ]

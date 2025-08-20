@@ -2,20 +2,24 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
-      colors: {
-        'brand-bg': '#1a1a2e',
-        'brand-primary': '#16213e',
-        'brand-secondary': '#0f3460',
-        'brand-accent': '#e94560',
-        'brand-light': '#f0f0f0',
-      },
       fontFamily: {
-        'sans': ['"Poppins"', 'sans-serif'],
-        'mono': ['"Fira Code"', 'monospace'],
+        sans: ['Inter', 'sans-serif'],
+        mono: ['"Fira Code"', 'monospace']
+      },
+      colors: {
+        primary: '#4F46E5',
+        secondary: '#8B5CF6',
+        accent: '#EC4899',
+        background: '#1F2937',
+        text: '#F9FAFB',
+        'text-light': '#D1D5DB',
+        success: '#10B981',
+        warning: '#F59E0B',
+        error: '#EF4444'
       }
     },
   },

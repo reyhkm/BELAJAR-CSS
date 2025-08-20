@@ -1,0 +1,72 @@
+[
+  {
+    "id": "color-text-1",
+    "title": "Ubah Warna Teks",
+    "instruction": "Ubah warna teks paragraf `.text-content` menjadi `blue`.",
+    "html": "<p class=\"text-content\">Ini adalah paragraf.</p>",
+    "cssStarter": ".text-content {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".text-content",
+      "properties": {
+        "color": "rgb(0, 0, 255)"
+      }
+    }
+  },
+  {
+    "id": "color-text-2",
+    "title": "Warna Latar Belakang",
+    "instruction": "Beri kotak `.box` `background-color` `red`.",
+    "html": "<div class=\"box\"></div>",
+    "cssStarter": ".box {\n  width: 100px;\n  height: 100px;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".box",
+      "properties": {
+        "background-color": "rgb(255, 0, 0)"
+      }
+    }
+  },
+  {
+    "id": "color-text-3",
+    "title": "Ukuran Font",
+    "instruction": "Perbesar ukuran font judul `h1` menjadi `32px`.",
+    "html": "<h1>Judul Besar</h1>",
+    "cssStarter": "h1 {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": "h1",
+      "properties": {
+        "font-size": "32px"
+      }
+    }
+  },
+  {
+    "id": "color-text-4",
+    "title": "Tebal Font",
+    "instruction": "Buat teks di dalam `.bold-text` menjadi tebal dengan `font-weight: bold;`.",
+    "html": "<p class=\"bold-text\">Teks ini harus tebal.</p>",
+    "cssStarter": ".bold-text {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".bold-text",
+      "properties": {
+        "font-weight": "700" // 'bold' typically resolves to 700
+      }
+    }
+  },
+  {
+    "id": "color-text-5",
+    "title": "Rata Tengah Teks",
+    "instruction": "Ratakan teks di dalam `.center-me` ke tengah dengan `text-align: center;`.",
+    "html": "<div class=\"center-me\">\n  <p>Teks ini harus rata tengah.</p>\n</div>",
+    "cssStarter": ".center-me {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".center-me",
+      "properties": {
+        "text-align": "center"
+      }
+    }
+  }
+]

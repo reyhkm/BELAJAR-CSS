@@ -1,48 +1,75 @@
 [
   {
     "id": "box-model-1",
-    "title": "Padding",
-    "instruction": "Beri kotak ini `padding` sebesar `20px` agar teks di dalamnya tidak menempel ke tepi.",
-    "html": "<div class=\"box\">Konten di dalam</div><style>.box { border: 3px solid #3498db; background: #ecf0f1; color: #333; width: 200px; }</style>",
+    "title": "Atur Lebar & Tinggi",
+    "instruction": "Ubah kotak `.box` menjadi persegi sempurna dengan `width: 150px;` dan `height: 150px;`.",
+    "html": "<div class=\"box\"></div>",
     "cssStarter": ".box {\n  /* Kodemu di sini */\n}",
     "solution": {
       "type": "style",
       "selector": ".box",
       "properties": {
-        "padding": "20px"
+        "width": "150px",
+        "height": "150px"
       }
     }
   },
   {
     "id": "box-model-2",
-    "title": "Margin",
-    "instruction": "Gunakan `margin` sebesar `30px` untuk memberi jarak antara kedua benteng ini.",
-    "html": "<div class=\"castle\"></div><div class=\"castle\"></div><style>.castle { width: 80px; height: 80px; background: #95a5a6; border: 5px solid #7f8c8d; display: inline-block; }</style>",
-    "cssStarter": ".castle {\n  /* Kodemu di sini */\n}",
+    "title": "Tambahkan Padding",
+    "instruction": "Beri kotak `.box` `padding` sebesar `20px` di semua sisi agar isinya tidak menempel pada batas.",
+    "html": "<div class=\"box\">Content</div>",
+    "cssStarter": ".box {\n  width: 100px;\n  height: 100px;\n  /* Kodemu di sini */\n}",
     "solution": {
       "type": "style",
-      "selector": ".castle",
+      "selector": ".box",
       "properties": {
-        "margin": "30px"
+        "padding-top": "20px",
+        "padding-right": "20px",
+        "padding-bottom": "20px",
+        "padding-left": "20px"
       }
     }
   },
   {
     "id": "box-model-3",
-    "title": "Border",
-    "instruction": "Beri kotak ini `border` dengan ketebalan `5px`, tipe `solid`, dan warna `red`.",
-    "html": "<div class=\"treasure-chest\"></div><style>.treasure-chest { width: 100px; height: 100px; background: #f1c40f; }</style>",
-    "cssStarter": ".treasure-chest {\n  /* Kodemu di sini */\n}",
+    "title": "Beri Border",
+    "instruction": "Tambahkan `border` `5px solid #F59E0B` (orange) pada kotak `.box`.",
+    "html": "<div class=\"box\"></div>",
+    "cssStarter": ".box {\n  width: 100px;\n  height: 100px;\n  /* Kodemu di sini */\n}",
     "solution": {
       "type": "style",
-      "selector": ".treasure-chest",
+      "selector": ".box",
       "properties": {
-        "borderTopWidth": "5px",
-        "borderRightWidth": "5px",
-        "borderBottomWidth": "5px",
-        "borderLeftWidth": "5px",
-        "borderTopStyle": "solid",
-        "borderTopColor": "rgb(255, 0, 0)"
+        "border-top-width": "5px",
+        "border-right-width": "5px",
+        "border-bottom-width": "5px",
+        "border-left-width": "5px",
+        "border-top-style": "solid",
+        "border-right-style": "solid",
+        "border-bottom-style": "solid",
+        "border-left-style": "solid",
+        "border-top-color": "rgb(245, 158, 11)",
+        "border-right-color": "rgb(245, 158, 11)",
+        "border-bottom-color": "rgb(245, 158, 11)",
+        "border-left-color": "rgb(245, 158, 11)"
+      }
+    }
+  },
+  {
+    "id": "box-model-4",
+    "title": "Tambahkan Margin",
+    "instruction": "Beri kotak `.box` `margin` sebesar `30px` di semua sisi agar ada jarak dari elemen lain.",
+    "html": "<div style=\"display: flex; flex-direction: column;\">\n  <div class=\"box\">Box 1</div>\n  <div class=\"box\">Box 2</div>\n</div>",
+    "cssStarter": ".box {\n  width: 100px;\n  height: 100px;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".box",
+      "properties": {
+        "margin-top": "30px",
+        "margin-right": "30px",
+        "margin-bottom": "30px",
+        "margin-left": "30px"
       }
     }
   }
