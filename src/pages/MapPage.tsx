@@ -4,6 +4,16 @@ import ModuleCard from '../components/ModuleCard';
 import ProgressBar from '../components/ProgressBar';
 import { useProgressStore } from '../store/progressStore';
 
+// Import SVG icons as raw strings
+import SelectorsIcon from '../assets/icons/selectors.svg?raw';
+import BoxModelIcon from '../assets/icons/box-model.svg?raw';
+import ColorTextIcon from '../assets/icons/color-text.svg?raw';
+import FlexboxIcon from '../assets/icons/flexbox.svg?raw';
+import GridIcon from '../assets/icons/grid.svg?raw';
+import PositioningIcon from '../assets/icons/positioning.svg?raw';
+import TransitionsAnimationsIcon from '../assets/icons/transitions-animations.svg?raw';
+
+
 const MapPage: React.FC = () => {
   const { modules, userProgress, moduleOrder } = useProgressStore();
 
@@ -17,6 +27,37 @@ const MapPage: React.FC = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  };
+
+  const moduleTitles: { [key: string]: string } = {
+    'selectors': 'The Selector Garden',
+    'box-model': 'The Box Model Citadel',
+    'color-text': 'The Color & Text Palace',
+    'flexbox': 'The Flexbox Fleet',
+    'grid': 'The Grid Kingdom',
+    'positioning': 'The Positioning Peak',
+    'transitions-animations': 'The Transition & Animation Volcano',
+  };
+
+  const moduleDescriptions: { [key: string]: string } = {
+    'selectors': 'Master the art of targeting HTML elements with precision.',
+    'box-model': 'Unravel the mysteries of element dimensions, padding, borders, and margins.',
+    'color-text': 'Bring your designs to life with vibrant colors and expressive typography.',
+    'flexbox': 'Arrange elements effortlessly with the power of one-dimensional layouts.',
+    'grid': 'Build complex, responsive layouts with the ultimate two-dimensional grid system.',
+    'positioning': 'Control the exact placement of elements on the page, from static to sticky.',
+    'transitions-animations': 'Add smooth motion and dynamic effects to your web elements.',
+  };
+
+  // Map module names to their corresponding SVG imports
+  const moduleIcons: { [key: string]: string } = {
+    'selectors': SelectorsIcon,
+    'box-model': BoxModelIcon,
+    'color-text': ColorTextIcon,
+    'flexbox': FlexboxIcon,
+    'grid': GridIcon,
+    'positioning': PositioningIcon,
+    'transitions-animations': TransitionsAnimationsIcon,
   };
 
   return (
@@ -52,33 +93,14 @@ const MapPage: React.FC = () => {
           const isUnlocked = index === 0 || (index > 0 && moduleOrder[index - 1] && 
             (Object.values(userProgress[moduleOrder[index - 1]] || {}).filter(level => level.completed).length === modules[moduleOrder[index - 1]].length));
 
-          const moduleTitles: { [key: string]: string } = {
-            'selectors': 'The Selector Garden',
-            'box-model': 'The Box Model Citadel',
-            'color-text': 'The Color & Text Palace',
-            'flexbox': 'The Flexbox Fleet',
-            'grid': 'The Grid Kingdom',
-            'positioning': 'The Positioning Peak',
-            'transitions-animations': 'The Transition & Animation Volcano',
-          };
-
-          const moduleDescriptions: { [key: string]: string } = {
-            'selectors': 'Master the art of targeting HTML elements with precision.',
-            'box-model': 'Unravel the mysteries of element dimensions, padding, borders, and margins.',
-            'color-text': 'Bring your designs to life with vibrant colors and expressive typography.',
-            'flexbox': 'Arrange elements effortlessly with the power of one-dimensional layouts.',
-            'grid': 'Build complex, responsive layouts with the ultimate two-dimensional grid system.',
-            'positioning': 'Control the exact placement of elements on the page, from static to sticky.',
-            'transitions-animations': 'Add smooth motion and dynamic effects to your web elements.',
-          };
-
           return (
             <ModuleCard
               key={moduleName}
               moduleName={moduleName}
               title={moduleTitles[moduleName] || moduleName.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
               description={moduleDescriptions[moduleName] || 'Explore fundamental CSS concepts.'}
-              image={`/assets/modules/${moduleName}.png`}
+              // Pass the SVG content directly
+              iconSvg={moduleIcons[moduleName] || ''} // Fallback to empty string if icon not found
               isUnlocked={isUnlocked}
               progress={moduleProgress}
             />

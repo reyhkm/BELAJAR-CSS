@@ -6,7 +6,7 @@ interface ModuleCardProps {
   moduleName: string;
   title: string;
   description: string;
-  image: string;
+  iconSvg: string; // Raw SVG content as a string
   isUnlocked: boolean;
   progress: number; // e.g., 0.75 for 75% completed
 }
@@ -15,7 +15,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
   moduleName,
   title,
   description,
-  image,
+  iconSvg,
   isUnlocked,
   progress,
 }) => {
@@ -36,7 +36,12 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
       <Link to={isUnlocked ? `/module/${moduleName}` : '#'} className="block h-full">
         <div className="p-6 flex flex-col h-full">
           <div className="flex items-center mb-4">
-            <img src={image} alt={title} className="w-16 h-16 object-cover rounded-full mr-4 border-2 border-primary" />
+            {/* Replaced <img> with a div rendering SVG content */}
+            <div
+              className="w-16 h-16 flex items-center justify-center rounded-full mr-4 border-2 border-primary p-2"
+              dangerouslySetInnerHTML={{ __html: iconSvg }}
+              style={{ color: 'white' }} // Ensure SVG path/stroke is visible
+            />
             <h3 className="text-2xl font-bold text-white">{title}</h3>
           </div>
           <p className="text-text-light mb-4 flex-grow">{description}</p>
