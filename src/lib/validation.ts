@@ -28,8 +28,14 @@ export const validateCss = (
       }
 
       case 'style': {
+        // A 'style' solution must have properties to check.
+        if (!solution.properties) {
+          return false;
+        }
         const elements = iframeDoc.querySelectorAll(solution.selector);
-        if (elements.length === 0 || !solution.properties) return false;
+        if (elements.length === 0) {
+          return false;
+        }
         // Check if all elements matching the selector have the correct styles
         return Array.from(elements).every(el => checkStyleProperties(el, solution.properties));
       }
