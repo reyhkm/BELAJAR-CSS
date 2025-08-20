@@ -60,7 +60,7 @@ initialModuleOrder.sort((a, b) => {
 
 export const useProgressStore = create<ProgressState>()(
   persist(
-    (set, get) => ({
+    (set, _get) => ({ // Renamed 'get' to '_get' to suppress unused variable warning
       modules: initialModules,
       moduleOrder: initialModuleOrder,
       activeModule: initialModuleOrder[0] || null,

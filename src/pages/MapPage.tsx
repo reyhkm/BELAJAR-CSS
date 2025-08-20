@@ -102,7 +102,7 @@ const MapPage: React.FC = () => {
               description={moduleDescriptions[moduleName] || 'Explore fundamental CSS concepts.'}
               // Pass the SVG content directly
               iconSvg={moduleIcons[moduleName] || ''} // Fallback to empty string if icon not found
-              isUnlocked={isUnlocked}
+              isUnlocked={Boolean(isUnlocked)} // Explicitly cast to boolean
               progress={moduleProgress}
             />
           );

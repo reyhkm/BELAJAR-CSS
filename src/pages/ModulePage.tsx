@@ -16,7 +16,6 @@ const ModulePage: React.FC = () => {
 
   const {
     modules,
-    activeModule,
     activeLevelIndex,
     userProgress,
     setActiveModule,

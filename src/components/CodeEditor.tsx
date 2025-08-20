@@ -4,6 +4,7 @@ import { css } from '@codemirror/lang-css';
 import { dracula } from '@uiw/codemirror-theme-dracula';
 import { EditorView } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
+import { indentUnit } from '@codemirror/language'; // Correct import for indentUnit
 
 interface CodeEditorProps {
   value: string;
@@ -21,7 +22,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange, readOnly = fal
           css(),
           EditorView.lineWrapping, // Enable line wrapping
           EditorState.tabSize.of(2), // Set tab size to 2
-          EditorState.indentUnit.of("  ") // Use 2 spaces for indentation
+          indentUnit.of("  ") // Use 2 spaces for indentation
         ]}
         onChange={onChange}
         theme={dracula}
