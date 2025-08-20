@@ -1,0 +1,49 @@
+[
+  {
+    "id": "box-model-1",
+    "title": "Padding",
+    "instruction": "Beri kotak ini `padding` sebesar `20px` agar teks di dalamnya tidak menempel ke tepi.",
+    "html": "<div class=\"box\">Konten di dalam</div><style>.box { border: 3px solid #3498db; background: #ecf0f1; color: #333; width: 200px; }</style>",
+    "cssStarter": ".box {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".box",
+      "properties": {
+        "padding": "20px"
+      }
+    }
+  },
+  {
+    "id": "box-model-2",
+    "title": "Margin",
+    "instruction": "Gunakan `margin` sebesar `30px` untuk memberi jarak antara kedua benteng ini.",
+    "html": "<div class=\"castle\"></div><div class=\"castle\"></div><style>.castle { width: 80px; height: 80px; background: #95a5a6; border: 5px solid #7f8c8d; display: inline-block; }</style>",
+    "cssStarter": ".castle {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".castle",
+      "properties": {
+        "margin": "30px"
+      }
+    }
+  },
+  {
+    "id": "box-model-3",
+    "title": "Border",
+    "instruction": "Beri kotak ini `border` dengan ketebalan `5px`, tipe `solid`, dan warna `red`.",
+    "html": "<div class=\"treasure-chest\"></div><style>.treasure-chest { width: 100px; height: 100px; background: #f1c40f; }</style>",
+    "cssStarter": ".treasure-chest {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".treasure-chest",
+      "properties": {
+        "borderTopWidth": "5px",
+        "borderRightWidth": "5px",
+        "borderBottomWidth": "5px",
+        "borderLeftWidth": "5px",
+        "borderTopStyle": "solid",
+        "borderTopColor": "rgb(255, 0, 0)"
+      }
+    }
+  }
+]

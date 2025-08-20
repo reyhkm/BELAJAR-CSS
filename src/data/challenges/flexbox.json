@@ -1,0 +1,44 @@
+[
+  {
+    "id": "flexbox-1",
+    "title": "Display Flex",
+    "instruction": "Armada kapal ini berantakan! Gunakan `display: flex;` pada kontainer `.fleet` untuk menyusun mereka dalam satu baris.",
+    "html": "<div class=\"fleet\"><div class=\"ship\"></div><div class=\"ship\"></div><div class=\"ship\"></div></div><style>.fleet { border: 2px dashed #34495e; padding: 10px; width: 300px; } .ship { width: 50px; height: 50px; background: #e74c3c; margin: 5px; }</style>",
+    "cssStarter": ".fleet {\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".fleet",
+      "properties": {
+        "display": "flex"
+      }
+    }
+  },
+  {
+    "id": "flexbox-2",
+    "title": "Justify Content",
+    "instruction": "Pusatkan semua harta karun di tengah peti. Gunakan `justify-content: center;` pada kontainer `.chest`.",
+    "html": "<div class=\"chest\"><div class=\"gem\"></div><div class=\"gem\"></div><div class=\"gem\"></div></div><style>.chest { display: flex; border: 2px solid #8e44ad; padding: 10px; width: 300px; height: 100px; background: #ecf0f1; } .gem { width: 40px; height: 40px; background: #3498db; border-radius: 50%; }</style>",
+    "cssStarter": ".chest {\n  display: flex;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".chest",
+      "properties": {
+        "justifyContent": "center"
+      }
+    }
+  },
+  {
+    "id": "flexbox-3",
+    "title": "Align Items",
+    "instruction": "Semua item berada di posisi yang berbeda secara vertikal. Gunakan `align-items: center;` untuk menyejajarkan mereka di tengah secara vertikal.",
+    "html": "<div class=\"shelf\"><div class=\"book book-1\"></div><div class=\"book book-2\"></div><div class=\"book book-3\"></div></div><style>.shelf { display: flex; justify-content: space-around; border: 2px solid #c0392b; padding: 10px; width: 300px; height: 150px; background: #fdf6e3; } .book { width: 40px; background: #2980b9; } .book-1 { height: 80px; } .book-2 { height: 120px; } .book-3 { height: 60px; }</style>",
+    "cssStarter": ".shelf {\n  display: flex;\n  justify-content: space-around;\n  /* Kodemu di sini */\n}",
+    "solution": {
+      "type": "style",
+      "selector": ".shelf",
+      "properties": {
+        "alignItems": "center"
+      }
+    }
+  }
+]

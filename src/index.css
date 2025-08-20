@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-brand-bg text-brand-light font-sans;
+}
+
+.cm-editor {
+  height: 100%;
+  font-family: theme('fontFamily.mono');
+  background-color: #1e1e1e !important;
+}
+
+.cm-gutters {
+  background-color: #1e1e1e !important;
+  border-right: 1px solid #333;
+}

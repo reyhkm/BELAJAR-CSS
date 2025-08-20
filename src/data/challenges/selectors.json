@@ -1,0 +1,38 @@
+[
+  {
+    "id": "selector-1",
+    "title": "Pilih berdasarkan Elemen",
+    "instruction": "Pilih semua piring di atas meja. Gunakan selektor elemen `plate` untuk memberi mereka latar belakang oranye.",
+    "html": "<div class=\"table\"><plate></plate><apple></apple><plate></plate></div><style>plate, apple { display: inline-block; width: 50px; height: 50px; border: 2px solid #333; margin: 5px; border-radius: 50%;} apple { background: #e74c3c; }</style>",
+    "cssStarter": "/* Pilih semua piring */\n",
+    "solution": {
+      "type": "style",
+      "selector": "plate",
+      "properties": {
+        "backgroundColor": "rgb(243, 156, 18)"
+      }
+    }
+  },
+  {
+    "id": "selector-2",
+    "title": "Pilih berdasarkan Kelas",
+    "instruction": "Pilih semua buah yang mewah. Gunakan selektor kelas `.fancy`.",
+    "html": "<div class=\"table\"><plate></plate><apple class=\"fancy\"></apple><orange></orange><apple class=\"fancy\"></apple></div><style>plate, apple, orange { display: inline-block; width: 50px; height: 50px; border: 2px solid #333; margin: 5px; border-radius: 50%;} apple { background: #e74c3c; } orange { background: #f39c12; }</style>",
+    "cssStarter": "/* Pilih semua buah mewah */\n.fancy {\n\n}",
+    "solution": {
+      "type": "selector",
+      "selector": ".fancy"
+    }
+  },
+  {
+    "id": "selector-3",
+    "title": "Pilih berdasarkan ID",
+    "instruction": "Pilih piring spesial dengan ID `#special-plate`.",
+    "html": "<div class=\"table\"><plate id=\"special-plate\"></plate><plate></plate><apple></apple></div><style>plate, apple { display: inline-block; width: 50px; height: 50px; border: 2px solid #333; margin: 5px; border-radius: 50%;} apple { background: #e74c3c; }</style>",
+    "cssStarter": "/* Pilih piring spesial */\n",
+    "solution": {
+      "type": "selector",
+      "selector": "#special-plate"
+    }
+  }
+]
